@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8868体育 – 稳定入口与信息说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f5d6b3 45%, #ecc19b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2d241a;
+        }
+        .wrapper {
+            max-width: 860px;
+            width: 100%;
+        }
+
+        /* 卡片通用设计 */
+        .card {
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 36px 16px 36px 16px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 12px 30px rgba(110, 60, 30, 0.10);
+            border: 1px solid rgba(255, 240, 225, 0.5);
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 16px 40px rgba(130, 70, 30, 0.12);
+        }
+
+        /* hero 区 */
+        .hero {
+            text-align: center;
+            padding: 3rem 2.2rem 2.5rem;
+            background: linear-gradient(135deg, #fff7ed 0%, #fff1e3 100%);
+            border-radius: 48px 16px 48px 16px;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #402d1c;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(145deg, #6b3f1f, #b45f2a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #5f4531;
+            background: #ecdac8c0;
+            display: inline-block;
+            padding: 0.3rem 1.6rem;
+            border-radius: 60px;
+            border: 1px solid #e3cbb6;
+            backdrop-filter: blur(2px);
+            margin-top: 0.3rem;
+            margin-bottom: 1.4rem;
+            letter-spacing: 0.6px;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin: 0.6rem auto 1rem;
+            color: #3d3127;
+        }
+        .hero .inline-link {
+            font-weight: 600;
+            background: #e7c9ae;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #2f1f12;
+            border: 1px solid #dbb694;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .hero .inline-link:hover {
+            background: #dbb694;
+        }
+
+        /* 标题与文字 */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #3b2b1c;
+            border-left: 6px solid #b97d4e;
+            padding-left: 1rem;
+        }
+        .card p, .card li {
+            color: #332a20;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.6rem;
+            margin-top: 0.6rem;
+        }
+        .feature-item {
+            background: #f7ede2;
+            padding: 0.75rem 1rem;
+            border-radius: 28px 8px 28px 8px;
+            font-weight: 470;
+            border: 1px solid #ecd3be;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .feature-item::before {
+            content: "▹";
+            color: #b46a34;
+            font-size: 1.3rem;
+            margin-right: 0.5rem;
+        }
+        .desc-list {
+            padding-left: 0.2rem;
+            margin-top: 0.2rem;
+        }
+        .desc-list li {
+            margin-bottom: 0.5rem;
+            list-style: none;
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+        }
+        .desc-list li::before {
+            content: "•";
+            color: #be7a44;
+            font-weight: 700;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        /* 说明区 特殊卡片 */
+        .explain-card {
+            background: #fcf6ef;
+            border-radius: 28px 12px 28px 12px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e5cfbb;
+        }
+
+        /* FAQ 摘要 */
+        .faq-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+        .faq-item {
+            background: #f6ede3;
+            border-radius: 20px 6px 20px 6px;
+            padding: 0.7rem 1.4rem;
+            border: 1px solid #e2ccb7;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #3e2c1d;
+            margin-bottom: 0.1rem;
+        }
+        .faq-a {
+            color: #3f3227;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 2rem;
+            padding: 0.8rem 0 1.6rem;
+            border-top: 1px solid #dac2ad;
+            margin-top: 0.8rem;
+        }
+        .footer-links a {
+            color: #3f2b19;
+            text-decoration: none;
+            border-bottom: 1px dotted #b48255;
+            padding-bottom: 2px;
+            font-weight: 450;
+            transition: border 0.2s;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #664129;
+        }
+
+        .inline-link-text {
+            color: #784e29;
+            font-weight: 550;
+            text-decoration: none;
+            border-bottom: 1px dashed #af784d;
+        }
+        .inline-link-text:hover {
+            border-bottom: 1px solid #784e29;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                padding: 1.6rem 1.2rem;
+                border-radius: 28px 10px 28px 10px;
+            }
+            .hero {
+                padding: 2.2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+                padding-left: 0.7rem;
+            }
+            .footer-links {
+                gap: 0.8rem 1.4rem;
+            }
+        }
+        @media (max-width: 460px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .sub {
+                font-size: 0.9rem;
+                padding: 0.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- hero 区 -->
+    <div class="card hero">
+        <h1>8868体育</h1>
+        <div class="sub">稳定 · 直接 · 信息透明</div>
+        <p>
+            <a href="https://chinese-8868sport.com" class="inline-link">8868体育</a> 作为综合性体育服务窗口，始终聚焦访问的稳定与内容的清晰。本页从入口说明、平台特征、常见疑问等维度，提供一份精炼的参考指南。
+        </p>
+    </div>
+
+    <!-- 优势区：特点卡片 -->
+    <div class="card">
+        <h2>平台特征与支持</h2>
+        <ul class="feature-grid">
+            <li class="feature-item">长期稳定的服务入口</li>
+            <li class="feature-item">界面响应快速，适配多端</li>
+            <li class="feature-item">内容结构保持明确分区</li>
+            <li class="feature-item">持续更新基础说明与提示</li>
+        </ul>
+        <p style="margin-top: 1.2rem; font-size: 0.98rem;">
+            平台围绕体育资讯、赛事参考及互动功能搭建，以简洁直观的信息层级降低用户理解成本。无论是初次接触还是长期使用，均可通过 <a href="https://chinese-8868sport.com" class="inline-link-text">8868体育</a> 获取一致的浏览体验。
+        </p>
+    </div>
+
+    <!-- 说明区：从稳定入口与页面说明角度 -->
+    <div class="card explain-card">
+        <h2>入口稳定性与页面说明</h2>
+        <ul class="desc-list">
+            <li>采用独立域名与标准 HTTPS 协议，保障基本访问安全及连接可靠性。</li>
+            <li>页面结构以信息展示为主，避免复杂跳转，确保核心内容可直接触及。</li>
+            <li>各功能区块按使用逻辑排列：先了解平台全貌，再深入具体模块，流程自然。</li>
+            <li>若遇到访问波动，建议检查本地网络或浏览器设置，亦可稍后重试。</li>
+        </ul>
+        <div style="margin-top: 1.2rem; background: #e8d7c7; border-radius: 30px; padding: 0.7rem 1.4rem; display: inline-block; border: 1px solid #dbbc9f;">
+            📌 日常使用中，将 <a href="https://chinese-8868sport.com" class="inline-link-text">8868体育</a> 添加至书签可提升再次访问的便利度。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-block">
+            <div class="faq-item">
+                <div class="faq-q">如何确认当前页面为官方说明页？</div>
+                <div class="faq-a">本页为独立介绍页面，提供平台的基本特征与使用参考。官方服务入口始终为 <a href="https://chinese-8868sport.com" class="inline-link-text">8868体育</a> ，域名主体明确，无额外重定向。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">页面信息是否保持更新？</div>
+                <div class="faq-a">优势区与说明区内容基于平台当前状态整理，后续如有显著调整会同步修订。建议以官网实际展示为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">遇到访问提示或页面异常应如何处理？</div>
+                <div class="faq-a">请先刷新页面或清除浏览器缓存。若问题持续，可通过平台内联系方式或邮件渠道反馈，届时请附上截图与简要描述。</div>
+            </div>
+        </div>
+        <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #4a3a2b;">
+            更多细节与动态，推荐直接浏览 <a href="https://chinese-8868sport.com" class="inline-link-text">8868体育</a> 各页面获取第一手信息。
+        </p>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="footer-links">
+        <a href="https://chinese-8868sport.com">8868体育</a>
+        <a href="#privacy">隐私说明</a>
+        <a href="#terms">服务条款</a>
+        <a href="#contact">联系方式</a>
+        <span style="color: #6b4f37; font-size: 0.9rem;">· 信息参考页</span>
+    </div>
+    <div style="text-align: center; margin-top: 0.2rem; font-size: 0.8rem; color: #7b614b; opacity: 0.6;">
+        本页为介绍说明，不构成服务承诺。
+    </div>
+</div>
+</body>
+</html>
